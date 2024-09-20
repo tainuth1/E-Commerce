@@ -1,137 +1,140 @@
-var options = {
+// Check for stored theme in localStorage on page load
+var isDarkMode = localStorage.getItem('theme') === 'dark';
+
+// Apply the stored theme on page load
+if (isDarkMode) {
+  document.body.classList.add('dark');
+} else {
+  document.body.classList.remove('dark');
+}
+
+// Define chart variables globally
+var lineChart;
+var radialChart;
+
+// Function to render the line chart
+function renderLineChart(isDarkMode) {
+  var options = {
     chart: {
-        height: 350,
-        type: "line",
-        toolbar: {
-            show: true
-        }
+      height: 350,
+      type: "line",
+      toolbar: {
+        show: false
+      },
+      background: 'transparent'
     },
     dataLabels: {
-        enabled: false
+      enabled: false
     },
     stroke: {
-        curve: "smooth"
+      curve: "smooth"
     },
     series: [
-        {
-            name: "Products",
-            color: '#3D5EE1',
-            data: [45, 60, 75, 51, 42, 42, 30]
-        },
-        {
-            name: "Orders",
-            color: '#70C4CF',
-            data: [24, 48, 56, 32, 34, 52, 25]
-        }
+      {
+        name: "Products",
+        color: '#1E90FF',
+        data: [45, 60, 75, 51, 42, 42, 30]
+      },
+      {
+        name: "Orders",
+        color: '#70C4CF',
+        data: [24, 48, 56, 32, 34, 52, 25]
+      }
     ],
     xaxis: {
-        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul']
-    }
-};
+      categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul']
+    },
+    grid: {
+      borderColor: isDarkMode ? '#4A5568' : '#d8d8d8'
+    },
+    theme: {
+      mode: isDarkMode ? 'dark' : 'light'
+    },
+  };
 
-var chart = new ApexCharts(document.querySelector("#chart-area"), options);
-chart.render();
+  // Destroy previous chart instance if it exists
+  if (lineChart) {
+    lineChart.destroy();
+  }
 
-// var optionsBar = {
-//     chart: {
-//         type: 'bar',
-//         // height: 350,
-//         width: '100%',
-//         stacked: false,
-//         toolbar: {
-//             show: false
-//         },
-//     },
-//     dataLabels: {
-//         enabled: false
-//     },
-//     plotOptions: {
-//         bar: {
-//             columnWidth: '55%',
-//             endingShape: 'rounded'
-//         },
-//     },
-//     stroke: {
-//         show: true,
-//         width: 2,
-//         colors: ['transparent']
-//     },
-//     series: [
-//         {
-//             name: "Boys",
-//             color: '#70C4CF',
-//             data: [420, 532, 516, 575, 519, 517, 454, 392, 262, 383, 446, 551],
-//         },
-//         {
-//             name: "Girls",
-//             color: '#3D5EE1',
-//             data: [336, 612, 344, 647, 345, 563, 256, 344, 323, 300, 455, 456],
-//         }
-//     ],
-//     labels: [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020],
-//     xaxis: {
-//         labels: {
-//             show: false
-//         },
-//         axisBorder: {
-//             show: false
-//         },
-//         axisTicks: {
-//             show: false
-//         },
-//     },
-//     yaxis: {
-//         axisBorder: {
-//             show: false
-//         },
-//         axisTicks: {
-//             show: false
-//         },
-//         labels: {
-//             style: {
-//                 colors: '#777'
-//             }
-//         }
-//     },
-//     title: {
-//         text: '',
-//         align: 'left',
-//         style: {
-//             fontSize: '18px'
-//         }
-//     }
-// };
-// var chartBar = new ApexCharts(document.querySelector('#number-sale'), optionsBar);
-// chartBar.render();
+  // Render line chart
+  lineChart = new ApexCharts(document.querySelector("#chart-area"), options);
+  lineChart.render();
+}
 
-var options = {
+// Function to render the radial chart
+function renderRadialBarChart(isDarkMode) {
+  var options = {
     series: [44, 55, 67, 83, 40],
     chart: {
-    height: 280,
-    type: 'radialBar',
-  },
-  plotOptions: {
-    radialBar: {
-      dataLabels: {
-        name: {
-          fontSize: '22px',
+      height: 280,
+      type: 'radialBar',
+      background: 'transparent'
+    },
+    plotOptions: {
+      radialBar: {
+        track: {
+          background: isDarkMode ? '#333' : '#eeeeee'
         },
-        value: {
-          fontSize: '16px',
-        },
-        total: {
-          show: true,
-          label: 'Total',
-          formatter: function (w) {
-            // By default this function returns the average of all series. The below is just an example to show the use of custom formatter function
-            return 249
+        dataLabels: {
+          name: {
+            fontSize: '22px',
+            color: isDarkMode ? '#fff' : '#333'
+          },
+          value: {
+            fontSize: '16px',
+            color: isDarkMode ? '#fff' : '#333'
+          },
+          total: {
+            show: true,
+            label: 'Total',
+            formatter: function (w) {
+              return 249;
+            },
+            style: {
+              fontSize: '16px',
+              color: isDarkMode ? '#fff' : '#333'
+            }
           }
         }
       }
+    },
+    theme: {
+      mode: isDarkMode ? 'dark' : 'light'
+    },
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+    stroke: {
+      lineCap: 'round',
+      colors: ['#3D5EE1', '#70C4CF', '#6D28D9', '#22C55E', '#F59E0B']
     }
-  },
-  labels: ['Jan', 'Feb', 'May', 'April', 'Mach'],
   };
 
-  var chart = new ApexCharts(document.querySelector("#radialbar"), options);
-  chart.render();
+  // Destroy previous chart instance if it exists
+  if (radialChart) {
+    radialChart.destroy();
+  }
+
+  // Render radial bar chart
+  radialChart = new ApexCharts(document.querySelector("#radialbar"), options);
+  radialChart.render();
+}
+
+// Initial render based on the current mode
+renderLineChart(isDarkMode);
+renderRadialBarChart(isDarkMode);
+
+// Event listener for the toggle button
+document.getElementById("theme-toggle").addEventListener("click", function() {
+  // Toggle the dark mode class on body
+  document.body.classList.toggle('dark');
+
+  // Update the isDarkMode variable
+  isDarkMode = document.body.classList.contains('dark');
+
+  // Save the user's preference in localStorage
+  localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+
+  // Re-render charts based on the current mode
+  renderLineChart(isDarkMode);
+  renderRadialBarChart(isDarkMode);
+});
