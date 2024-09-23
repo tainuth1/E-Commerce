@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Auth\UserController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\User\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -13,6 +14,12 @@ Route::get('/login', [UserController::class, 'loginForm'])->name('login');
 Route::post('/auth/login', [UserController::class, 'login'])->name('auth.login');
 Route::post('/auth/register', [UserController::class, 'register'])->name('auth.register');
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
+
+Route::middleware('admin')->group(function(){
+    Route::resource('product', ProductController::class);
+});
+
+
 // Test route
 Route::get('/test', function () {
     return view('welcome');

@@ -3,7 +3,7 @@
 <div class="w-full h-full">
     <div class="w-full h-[60px] flex justify-center items-center">
         <div class=" w-11 h-11 cursor-pointer rounded-lg overflow-hidden">
-            <img class="w-full h-full object-cover" src="./images/logo.png" alt="">
+            <img class="w-full h-full object-cover" src="https://cdn-1.webcatalog.io/catalog/alibaba/alibaba-icon.png" alt="">
         </div>
     </div>
         <div class="w-full h-[653px] mt-4 overflow-y-scroll side-bar">
@@ -107,7 +107,7 @@
                     <div class="pl-9">
                         <ul class="">
                             <li class="group p-2 rounded-md transition-all hover:bg-blue-500">
-                                <a href="" class="text-[14px] text-[#5e5e5e] transition-all group-hover:text-white dark:text-gray-300">Add Products</a>
+                                <a href="{{ route('product.create') }}" class="text-[14px] text-[#5e5e5e] transition-all group-hover:text-white dark:text-gray-300">Add Products</a>
                             </li>
                             <li class="group p-2 rounded-md transition-all hover:bg-blue-500">
                                 <a href="" class="text-[14px] text-[#5e5e5e] transition-all group-hover:text-white dark:text-gray-300">Views</a>

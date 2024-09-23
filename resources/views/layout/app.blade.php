@@ -70,5 +70,6 @@
 @vite(['resources/js/chart.js'])
 @vite(['resources/js/calender.js'])
 @vite(['resources/js/counting.js'])
+@vite(['resources/js/createproduct.js'])
 </body>
 </html>
