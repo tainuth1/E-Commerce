@@ -20,7 +20,7 @@
 <body class="">
     <div class="w-full h-full flex bg-[#F1F4FA] dark:bg-[#232323]">
         {{-- Side Bar h-[729px]--}}
-        <aside class="transition-all h-full z-[99] bg-white shadow sm:w-64 sm:fixed sm:-left-64 sm:top-0 lg:sticky lg:top-0 lg:w-20 lg:left-0 xl:sticky xl:top-0 xl:w-64
+        <aside class="transition-all h-full z-[2] bg-white shadow sm:w-64 sm:fixed sm:-left-64 sm:top-0 lg:sticky lg:top-0 lg:w-20 lg:left-0 xl:sticky xl:top-0 xl:w-64
             dark:bg-[#2C2C2C]
         " id="sidebar">
             @include('layout.sidebar')
@@ -28,7 +28,7 @@
 
         {{-- Nav Bar --}}
         <div class="w-full h-full">
-            <nav class="w-full h-[60px] bg-white sticky top-0 z-[98] shadow-md flex justify-between items-center dark:bg-[#2C2C2C]">
+            <nav class="w-full h-[60px] bg-white sticky top-0 z-[1] shadow-md flex justify-between items-center dark:bg-[#2C2C2C]">
                 <div class="ml-4 hidden sm:hidden lg:hidden xl:block cursor-pointer" id="bar">
                     <i class='bx bx-menu-alt-left text-black text-[39px] dark:text-gray-200'></i>
                 </div>
@@ -71,5 +71,6 @@
 @vite(['resources/js/calender.js'])
 @vite(['resources/js/counting.js'])
 @vite(['resources/js/createproduct.js'])
+@vite(['resources/js/showproduct.js'])
 </body>
 </html>

@@ -28,8 +28,8 @@ class StoreProductRequest extends FormRequest
             'price' => ['required', 'numeric', 'min:0'], 
             'visibility' => ['required', 'string'], 
             'stock' => ['required', 'integer', 'min:0'], 
-            'thumbnail' => ['required', 'image', 'mimes:jpeg,png,jpg,gif'],
-            'collection.*' => ['image', 'mimes:jpeg,png,jpg,gif'],
+            'thumbnail' => ['required', 'image'],
+            'collection.*' => ['image'],
         ];
     }
 }

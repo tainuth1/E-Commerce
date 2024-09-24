@@ -25,7 +25,7 @@
                 <li class="group flex items-center justify-between cursor-pointer transition-all hover:bg-blue-500 rounded-md">
                     <div class="flex items-center gap-1">
                         <div class="w-10 h-10  rounded-md flex justify-center items-center">
-                            <i class='bx bxs-bar-chart-alt-2 text-[20px] text-black transition-all group-hover:text-white dark:text-white' ></i>
+                            <i class='bx bxs-bar-chart-alt-2 text-[20px] text-gray-600 transition-all group-hover:text-white dark:text-white' ></i>
                         </div>
                         <a href="" class="text-menu text-[14px] text-[#5e5e5e] transition-all opacity-[1] visible group-hover:text-white dark:text-gray-300">Analytic</a>
                     </div> 
@@ -56,7 +56,7 @@
                 <li class="group flex items-center justify-between cursor-pointer transition-all hover:bg-blue-500 rounded-md">
                     <div class="flex items-center gap-1">
                         <div class="w-10 h-10  rounded-md flex justify-center items-center transition-all">
-                            <i class=' bx bxs-cart-alt text-[20px] text-black transition-all group-hover:text-white dark:text-white' ></i>
+                            <i class=' bx bxs-cart-alt text-[20px] text-gray-600 transition-all group-hover:text-white dark:text-white' ></i>
                         </div>
                         <a href="" class="text-menu text-[14px] text-[#5e5e5e] transition-all opacity-[1] visible group-hover:text-white dark:text-gray-300">Sales</a>
                     </div>
@@ -84,7 +84,7 @@
                 <li class="group flex items-center justify-between cursor-pointer transition-all hover:bg-blue-500 rounded-md">
                     <div class="flex items-center gap-1">
                         <div class="w-10 h-10  rounded-md flex justify-center items-center transition-all">
-                            <i class=' bx bxs-envelope text-[20px] text-black transition-all group-hover:text-white dark:text-white' ></i>
+                            <i class=' bx bxs-envelope text-[20px] text-gray-600 transition-all group-hover:text-white dark:text-white' ></i>
                         </div>
                         <a href="" class="text-menu text-[14px] text-[#5e5e5e] transition-all opacity-[1] visible group-hover:text-white dark:text-gray-300">Message</a>
                     </div>
@@ -95,7 +95,7 @@
                 <li class="group flex items-center justify-between cursor-pointer transition-all hover:bg-blue-500 rounded-md">
                     <div class="flex items-center gap-1">
                         <div class="w-10 h-10  rounded-md flex justify-center items-center">
-                            <i class='bx bxs-bar-chart-alt-2 text-[20px] text-black transition-all group-hover:text-white dark:text-white' ></i>
+                            <i class='bx bxs-bar-chart-alt-2 text-[20px] text-gray-600 transition-all group-hover:text-white dark:text-white' ></i>
                         </div>
                         <a href="" class="text-menu text-[14px] text-[#5e5e5e] transition-all opacity-[1] visible group-hover:text-white dark:text-gray-300">Products</a>
                     </div> 
@@ -110,7 +110,7 @@
                                 <a href="{{ route('product.create') }}" class="text-[14px] text-[#5e5e5e] transition-all group-hover:text-white dark:text-gray-300">Add Products</a>
                             </li>
                             <li class="group p-2 rounded-md transition-all hover:bg-blue-500">
-                                <a href="" class="text-[14px] text-[#5e5e5e] transition-all group-hover:text-white dark:text-gray-300">Views</a>
+                                <a href="{{ route('product.index') }}" class="text-[14px] text-[#5e5e5e] transition-all group-hover:text-white dark:text-gray-300">Views</a>
                             </li>
                             <li class="group p-2 rounded-md transition-all hover:bg-blue-500">
                                 <a href="" class="text-[14px] text-[#5e5e5e] transition-all group-hover:text-white dark:text-gray-300">Sold Out   </a>
@@ -126,7 +126,7 @@
                 <li class="group flex items-center justify-between cursor-pointer transition-all hover:bg-blue-500 rounded-md">
                     <div class="flex items-center gap-1">
                         <div class="w-10 h-10  rounded-md flex justify-center items-center transition-all">
-                            <i class=' bx bxs-user-account text-[20px] text-black transition-all group-hover:text-white dark:text-white' ></i>
+                            <i class=' bx bxs-user-account text-[20px] text-gray-600 transition-all group-hover:text-white dark:text-white' ></i>
                         </div>
                         <a href="" class="text-menu text-[14px] text-[#5e5e5e] transition-all opacity-[1] visible group-hover:text-white dark:text-gray-300">User</a>
                     </div>
@@ -137,7 +137,7 @@
                 <li class="group flex items-center justify-between cursor-pointer transition-all hover:bg-blue-500 rounded-md">
                     <div class="flex items-center gap-1">
                         <div class="w-10 h-10  rounded-md flex justify-center items-center transition-all">
-                            <i class='bx bxs-message-alt-dots text-[20px] text-black transition-all group-hover:text-white dark:text-white'></i>
+                            <i class='bx bxs-message-alt-dots text-[20px] text-gray-600 transition-all group-hover:text-white dark:text-white'></i>
                         </div>
                         <a href="" class="text-menu text-[14px] text-[#5e5e5e] transition-all opacity-[1] visible group-hover:text-white dark:text-gray-300">FeedBack</a>
                     </div>
@@ -148,7 +148,7 @@
                 <li class="group flex items-center justify-between cursor-pointer transition-all hover:bg-blue-500 rounded-md">
                     <div class="flex items-center gap-1">
                         <div class="w-10 h-10  rounded-md flex justify-center items-center transition-all">
-                            <i class='bx bxs-report text-[20px] text-black transition-all group-hover:text-white dark:text-white' ></i>
+                            <i class='bx bxs-report text-[20px] text-gray-600 transition-all group-hover:text-white dark:text-white' ></i>
                         </div>
                         <a href="" class="text-menu text-[14px] text-[#5e5e5e] transition-all opacity-[1] visible group-hover:text-white dark:text-gray-300">Report</a>
                     </div>
@@ -159,7 +159,7 @@
                 <li class="group flex items-center justify-between cursor-pointer transition-all hover:bg-blue-500 rounded-md">
                     <div class="flex items-center gap-1">
                         <div class="w-10 h-10  rounded-md flex justify-center items-center transition-all">
-                            <i class=' bx bxs-cog text-[20px] text-black transition-all group-hover:text-white dark:text-white' ></i>
+                            <i class=' bx bxs-cog text-[20px] text-gray-600 transition-all group-hover:text-white dark:text-white' ></i>
                         </div>
                         <a href="" class="text-menu text-[14px] text-[#5e5e5e] transition-all opacity-[1] visible group-hover:text-white dark:text-gray-300">Setting</a>
                     </div>
@@ -170,7 +170,7 @@
                 <li class="group flex items-center justify-between cursor-pointer transition-all hover:bg-blue-500 rounded-md">
                     <div class="flex items-center gap-1">
                         <div class="w-10 h-10  rounded-md flex justify-center items-center transition-all">
-                            <i class='bx bx-log-out text-[20px] text-black transition-all group-hover:text-white dark:text-white'></i>
+                            <i class='bx bx-log-out text-[20px] text-gray-600 transition-all group-hover:text-white dark:text-white'></i>
                         </div>
                         <a href="{{ route('logout') }}" class="text-menu text-[14px] text-[#5e5e5e] transition-all opacity-[1] visible group-hover:text-white dark:text-gray-300">Logout</a>
                     </div>

@@ -30,7 +30,9 @@
                                                                 'Laptop' => 'Laptop', 
                                                                 'Camping' => 'Camping', 
                                                                 'Kitchen' => 'Kitchen',
-                                                                'Gaming' => 'Gaming'
+                                                                'Gaming' => 'Gaming',
+                                                                'Shoes' => 'Shoes',
+                                                                'Clothes' => 'Clothes',
                                                                 ]" 
                             name="category" 
                             selected="{{ old('category') }}" />
@@ -55,6 +57,7 @@
                                 <x-label class="text-red-600 text-[12px]">{{ $message }}</x-label>
                             @enderror<br>
                             <x-select class="w-full" :options="['Active' => 'Active',
+                                                                'Pending' => 'Pending',
                                                                 'Coming Soon' => 'Coming Soon',
                                                                 ]" 
                             name="visibility"
@@ -65,7 +68,19 @@
                             @error('discount')
                                 <x-label class="text-red-600 text-[12px]">{{ $message }}</x-label>
                             @enderror<br>
-                            <x-input class="w-full" name="discount" value="{{ old('discount') }}" autocomplete="off"></x-input>
+                            <x-select class="w-full"  :options="['0' => '0%',
+                                                                '10' => '10%',
+                                                                '20' => '20%', 
+                                                                '30' => '30%', 
+                                                                '50' => '50%', 
+                                                                '60' => '60%',
+                                                                '70' => '70%',
+                                                                '80' => '80%',
+                                                                '90' => '90%',
+                                                                '100' => '100%',
+                                                                ]" 
+                            name="discount" 
+                            selected="{{ old('discount') }}" />   
                         </div>
                         <div class="">
                             <x-label>Stock</x-label>

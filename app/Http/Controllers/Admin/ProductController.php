@@ -18,6 +18,9 @@ class ProductController extends Controller
     public function index()
     {
 
+        $products = Product::all();
+
+        return view('Admin.productlist', compact('products'));
     }
 
     /**
@@ -49,15 +52,17 @@ class ProductController extends Controller
         ]);
 
         $collecctions = $request->collection;
-        foreach ($collecctions as $collecction) {
+        if($collecctions){
+            foreach ($collecctions as $collecction) {
             
-            $image_path = $collecction->store('thumbnails', 'public');
-
-            Image::create([
-                'product_id' => $product->id,
-                'path' => $image_path
-            ]);
-
+                $image_path = $collecction->store('thumbnails', 'public');
+    
+                Image::create([
+                    'product_id' => $product->id,
+                    'path' => $image_path
+                ]);
+    
+            }
         }
 
         return redirect(route('product.create'));
