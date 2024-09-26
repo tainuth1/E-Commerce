@@ -29,20 +29,29 @@ document.addEventListener('click', (e) => {
 
 document.addEventListener('DOMContentLoaded', function() {
     const deleteBtns = document.querySelectorAll('.deleteBtn');
-    const deleteModal = document.getElementById('deleteModal');
-    const modalContent = document.getElementById('modalContent');
-    const cancelBtn = document.getElementById('cancelBtn');
+    const cancelBtns = document.querySelectorAll('.cancelBtn');
 
     // Function to show the modal with transition
-    function showModal() {
+    function showModal(modalId) {
+        const deleteModal = document.querySelector(modalId);
+        const modalContent = deleteModal.querySelector('[id^="modalContent"]');
         deleteModal.classList.remove('hidden');
         setTimeout(() => {
             modalContent.classList.add('scale-100'); // Scale from 0 to normal size
         }, 10); // Slight delay to trigger transition
+
+        // Close modal when clicking outside of modal content
+        deleteModal.addEventListener('click', function(e) {
+            if (e.target === deleteModal) {
+                closeModal(modalId);
+            }
+        });
     }
 
     // Function to close the modal
-    function closeModal() {
+    function closeModal(modalId) {
+        const deleteModal = document.querySelector(modalId);
+        const modalContent = deleteModal.querySelector('[id^="modalContent"]');
         modalContent.classList.remove('scale-100'); // Scale back to 0
         setTimeout(() => {
             deleteModal.classList.add('hidden');
@@ -53,17 +62,16 @@ document.addEventListener('DOMContentLoaded', function() {
     deleteBtns.forEach((btn) => {
         btn.addEventListener('click', function(e) {
             e.preventDefault();
-            showModal();
+            const targetModalId = btn.getAttribute('data-target');
+            showModal(targetModalId);
         });
     });
 
-    // Close the modal on clicking cancel or background
-    cancelBtn.addEventListener('click', closeModal);
-
-    deleteModal.addEventListener('click', function(e) {
-        if (e.target === deleteModal) { // Check if clicked outside the modal content
-            closeModal();
-        }
+    // Close the modal on clicking cancel
+    cancelBtns.forEach((btn) => {
+        btn.addEventListener('click', function(e) {
+            const modalId = '#' + e.target.closest('[id^="deleteModal"]').id;
+            closeModal(modalId);
+        });
     });
 });
-

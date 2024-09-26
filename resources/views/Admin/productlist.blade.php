@@ -41,7 +41,7 @@
     <div class="bg-white rounded-xl overflow-hidden shadow dark:bg-[#2C2C2C]">
         <table class="min-w-full text-left">
             <thead class="">
-                <tr class="border-b-[1px] border-gray-200">
+                <tr class="border-b-[1px] border-gray-200 dark:border-gray-400">
                     <th class="px-6 py-4 text-[14px] text-gray-700 font-semibold dark:text-gray-300">#</th>
                     <th class="px-6 py-4 text-[14px] text-gray-700 font-semibold dark:text-gray-300">Product Name</th>
                     <th class="px-6 py-4 text-[14px] text-gray-700 font-semibold dark:text-gray-300">Category</th>
@@ -52,7 +52,7 @@
                     <th class="px-6 py-4 text-[14px] text-gray-700 font-semibold dark:text-gray-300">Action</th>
                 </tr>
             </thead>
-            <tbody class="divide-y divide-gray-200">
+            <tbody class="divide-y divide-gray-200 dark:divide-gray-600">
                 @foreach ($products as $product)
                     <tr>
                         <td class="px-6 py-3 text-[14px] dark:text-gray-200">#{{ $product->id }}</td>
@@ -83,40 +83,43 @@
                                 <i class='bx bx-dots-horizontal-rounded text-[24px]'></i>
                             </button>
                             <div class="action absolute bg-white w-full shadow rounded-lg z-20 top-11 left-[-3px] overflow-hidden hidden dark:bg-[#2F2F2F]" id="action">
-                                <a href="{{ route('product.update', $product->id) }}" class="group flex text-gray-600 items-center gap-1 px-2 py-[5px] transition-all hover:bg-blue-600 cursor-pointer dark:text-gray-400">
+                                <a href="{{ route('product.edit', $product->id) }}" class="group flex text-gray-600 items-center gap-1 px-2 py-[5px] transition-all hover:bg-blue-600 cursor-pointer dark:text-gray-400">
                                     <i class='bx bx-edit group-hover:text-white dark:text-gray-300'></i>
                                     <span class="group-hover:text-white dark:text-gray-300">Update</span>
                                 </a>
-                                <a class="group deleteBtn flex text-gray-600 items-center gap-1 px-2 py-[5px] transition-all hover:bg-blue-600 cursor-pointer dark:text-gray-400">
+                                <a class="group deleteBtn flex text-gray-600 items-center gap-1 px-2 py-[5px] transition-all hover:bg-blue-600 cursor-pointer dark:text-gray-400"  data-target="#deleteModal{{ $product->id }}">
                                     <i class='bx bx-trash group-hover:text-white dark:text-gray-300'></i>
                                     <span class="group-hover:text-white dark:text-gray-300">Delete</span>
                                 </a>
                             </div>
                             
                             <!-- Delete confirmation modal -->
-                            <div id="deleteModal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-50 flex justify-center items-center">
-                                <div id="modalContent" class="w-[500px] aspect-video flex justify-center items-center shadow-md bg-white rounded-lg p-4 transform scale-0 transition-transform duration-100 dark:bg-gray-300">
-                                    <form action="{{ route('product.destroy' , $product->id) }}" class="w-full">
+                            <div id="deleteModal{{ $product->id }}" class="fixed inset-0 z-50 hidden bg-black bg-opacity-50 flex justify-center items-center">
+                                <div id="modalContent{{ $product->id }}" class="w-[500px] aspect-video flex justify-center items-center shadow-md bg-white rounded-lg p-4 transform scale-0 transition-transform duration-100 dark:bg-gray-300">
+                                    <form action="{{ route('product.destroy', $product->id) }}" method="post" class="w-full">
+                                        @csrf
+                                        @method('delete')
                                         <div class="w-full flex justify-center">
-                                            <img src="./storage/{{ $product->thumbnail }}" class="w-28 aspect-square object-cover rounded-md shadow-2xl" alt="">
+                                            <img src="{{ asset('/storage/'. $product->thumbnail) }}" class="w-28 aspect-square object-cover rounded-md shadow-2xl" alt="">
                                         </div>
                                         <p class="text-center text-gray-700 my-4">Are you sure you want to delete this product?</p>
                                         <div class="flex justify-center gap-4">
-                                            <button type="button" id="cancelBtn" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Cancel</button>
+                                            <button type="button" class="px-4 py-2 bg-blue-500 text-white rounded cancelBtn hover:bg-blue-600">Cancel</button>
                                             <button type="submit" class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">Delete</button>
                                         </div>
                                     </form>
                                 </div>
                             </div>
+                            
                         </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
-        <div class="flex justify-between items-center bg-white px-6 py-3 border-t dark:bg-[#2C2C2C]">
+        <div class="flex justify-between items-center bg-white px-6 py-3 border-t dark:bg-[#2C2C2C] dark:border-gray-400">
             <button class="text-gray-500 hover:text-gray-700 dark:text-gray-200">Previous</button>
             <div class="flex space-x-2">
-                <button class="text-white px-3 py-1 bg-blue-500 rounded dark:text-black shadow-inner">1</button>
+                <button class="text-white px-3 py-1 bg-blue-500 rounded dark:text-white shadow-inner">1</button>
                 <button class="text-gray-500 hover:text-gray-700 px-3 py-1 dark:text-gray-400">2</button>
                 <button class="text-gray-500 hover:text-gray-700 px-3 py-1 dark:text-gray-400">3</button>
                 <button class="text-gray-500 hover:text-gray-700 px-3 py-1 dark:text-gray-400">4</button>

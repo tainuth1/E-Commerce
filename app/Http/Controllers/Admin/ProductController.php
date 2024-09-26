@@ -52,20 +52,20 @@ class ProductController extends Controller
         ]);
 
         $collecctions = $request->collection;
-        if($collecctions){
+        if ($collecctions) {
             foreach ($collecctions as $collecction) {
-            
+
                 $image_path = $collecction->store('thumbnails', 'public');
-    
+
                 Image::create([
                     'product_id' => $product->id,
                     'path' => $image_path
                 ]);
-    
+
             }
         }
 
-        return redirect(route('product.create'));
+        return redirect(route('product.create'))->with('msg', 'Add Product Successfully.');
     }
 
     /**
@@ -73,7 +73,10 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        //
+
+        $product = Product::with('images')->find($id);
+
+        return view('Admin.productpreview', compact('product'));
     }
 
     /**
@@ -97,6 +100,6 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        return 'ID: '.$id;
     }
 }

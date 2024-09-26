@@ -5,3 +5,6 @@
 *{
     @apply transition-colors;
 }
+.product-preview::-webkit-scrollbar{
+    display: none
+}

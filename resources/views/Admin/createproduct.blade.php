@@ -4,6 +4,19 @@
 
 @section('content')
     <div class="w-full h-full px-4 pt-4 pb-6">
+        @if (session('msg'))
+            <div id="alert" class="fixed z-50 top-9 right-[400px] flex w-[500px] shadow-xl rounded-lg transition-transform duration-300">
+                <div class="bg-green-600 py-1 px-6 rounded-l-lg flex items-center">
+                    <i class='bx bx-check-circle text-white text-[22px]'></i>
+                </div>
+                <div class="px-4 py-3 bg-white rounded-r-lg flex justify-between items-center w-full border border-l-transparent border-gray-200">
+                    <div>{{ session('msg') }}</div>
+                    <button id="close-alert" class="flex justify-center items-center">
+                        <i class='bx bx-x text-[22px]'></i>
+                    </button>
+                </div>
+            </div>
+        @endif
         <div class="">
             <h2 class="font-semibold text-[22px] mb-3 dark:text-gray-100">Add Product</h2>
         </div>
@@ -32,7 +45,7 @@
                                                                 'Kitchen' => 'Kitchen',
                                                                 'Gaming' => 'Gaming',
                                                                 'Shoes' => 'Shoes',
-                                                                'Clothes' => 'Clothes',
+                                                                'Cloth' => 'Cloth',
                                                                 ]" 
                             name="category" 
                             selected="{{ old('category') }}" />
