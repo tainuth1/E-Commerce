@@ -75,3 +75,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const alertBox = document.getElementById('alert');
+    const closeButton = document.getElementById('close-alert');
+
+    alertBox.classList.add('transform', 'translate-y-[-100%]', 'transition-transform', 'duration-300');
+    setTimeout(() => {
+        alertBox.classList.remove('translate-y-[-100%]');
+    }, 100);
+
+    closeButton.addEventListener('click', function() {
+        alertBox.classList.add('translate-y-[-100%]');
+        setTimeout(() => {
+            alertBox.classList.add('hidden');
+        }, 200);
+    });
+});

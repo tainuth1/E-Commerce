@@ -100,6 +100,17 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        return 'ID: '.$id;
+
+        $product = Product::with('images')->find($id);
+
+        Storage::disk('public')->delete($product->thumbnail);
+
+        $product->delete();
+
+        foreach ($product->images as $image) {
+            Storage::disk('public')->delete($image->path);
+        }
+
+        return redirect(route('product.index'))->with('msg', 'Delete product successfully.');
     }
 }
