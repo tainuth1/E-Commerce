@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProductRequest;
+use App\Http\Requests\UpdateProductRequest;
 use App\Models\Image;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -84,15 +85,52 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        
+        $product = Product::with('images')->find($id);
+
+        return view('Admin.updateproduct', compact('product'));
+
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateProductRequest $request, Product $product)
     {
-        //
+        
+        $product->update($request->except('thumbnail', 'collection'));
+
+        if($request->thumbnail){
+            
+            Storage::disk('public')->delete($request->oldThumbnail);
+
+            $path = $request->file('thumbnail')->store('thumbnails', 'public');
+
+            $product->update([
+                'thumbnail' => $path
+            ]);
+
+        }
+
+        $collections = Image::where('product_id', $product->id)->get();
+        $newCollections = $request->collection; 
+
+        if($request->collection){
+            foreach ($collections as $image) {
+                $image->delete();
+                Storage::disk('public')->delete($image->path);
+            }
+            foreach ($newCollections as $collection) {
+                $collection_path = $collection->store('thumbnails', 'public');
+
+                Image::create([
+                    'product_id' => $product->id,
+                    'path' => $collection_path
+                ]);
+            }
+        }
+
+        return redirect(route('product.show', $product->id))->with('msg', 'Product Updated successfully.');
     }
 
     /**

@@ -73,5 +73,6 @@
 @vite(['resources/js/createproduct.js'])
 @vite(['resources/js/showproduct.js'])
 @vite(['resources/js/productpreview.js'])
+@vite(['resources/js/updateproduct.js'])
 </body>
 </html>

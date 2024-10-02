@@ -87,7 +87,7 @@
                                 <span class="inline-block px-3 py-1 text-xs font-semibold text-green-800 bg-green-100 rounded-full">{{ $product->visibility }}</span>
                             @elseif($product->visibility == 'Pending')
                                 <span class="inline-block px-3 py-1 text-orange-800 bg-orange-100 rounded-full">{{ $product->visibility }}</span>
-                            @elseif($product->visibility == 'Comming Soon')
+                            @elseif($product->visibility == 'Coming Soon')
                                 <span class="inline-block px-3 py-1 text-blue-800 bg-blue-100 rounded-full">{{ $product->visibility }}</span>
                             @endif
                         </td>

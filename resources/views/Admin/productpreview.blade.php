@@ -6,6 +6,19 @@
 
 <div class="py-4 px-4">
     {{-- <h2 class="font-semibold text-[22px] dark:text-gray-100 pl-1 mb-4">Product Preview</h2> --}}
+    @if (session('msg'))
+            <div id="alert" class="fixed z-50 top-9 right-[400px] flex w-[500px] shadow-xl rounded-lg transition-transform duration-300">
+                <div class="bg-green-600 py-1 px-6 rounded-l-lg flex items-center">
+                    <i class='bx bx-check-circle text-white text-[22px]'></i>
+                </div>
+                <div class="px-4 py-3 bg-white rounded-r-lg flex justify-between items-center w-full border border-l-transparent border-gray-200">
+                    <div>{{ session('msg') }}</div>
+                    <button id="close-alert" class="flex justify-center items-center">
+                        <i class='bx bx-x text-[22px]'></i>
+                    </button>
+                </div>
+            </div>
+    @endif
     <div class="grid grid-cols-2 gap-10 bg-white p-4 rounded-lg shadow-lg dark:bg-[#2C2C2C]">
         <div class="">
             <div class="flex gap-3 sticky top-[70px]">
