@@ -67,7 +67,7 @@ function renderRadialBarChart(isDarkMode) {
   var options = {
     series: [44, 55, 67, 83, 40],
     chart: {
-      height: 280,
+      height: 250,
       type: 'radialBar',
       background: 'transparent'
     },

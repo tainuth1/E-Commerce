@@ -3,7 +3,7 @@
 @section('title', 'Add Product')
 
 @section('content')
-    <div class="w-full h-full px-4 pt-4 pb-6">
+    <div class="w-full h-full px-1 pt-4 pb-6">
         @if (session('msg'))
             <div id="alert" class="fixed z-50 top-9 right-[400px] flex w-[500px] shadow-xl rounded-lg transition-transform duration-300">
                 <div class="bg-green-600 py-1 px-6 rounded-l-lg flex items-center">
@@ -45,7 +45,7 @@
                                                                 'Kitchen' => 'Kitchen',
                                                                 'Gaming' => 'Gaming',
                                                                 'Shoes' => 'Shoes',
-                                                                'Cloth' => 'Cloth',
+                                                                'Clothing' => 'Clothing',
                                                                 ]" 
                             name="category" 
                             selected="{{ old('category') }}" />

@@ -16,12 +16,21 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
 
-        $products = Product::all();
+        $query = $request->input('query');
 
-        return view('Admin.productlist', compact('products'));
+        if($query){
+            $products = Product::where('name', 'LIKE', "%{$query}%")
+                                ->orWhere('category', 'LIKE', "%{$query}%")
+                                ->paginate(10);
+        }else{
+            $products = Product::paginate(10);
+        }
+
+
+        return view('Admin.productlist', compact('products'))->with('products', $products);
     }
 
     /**

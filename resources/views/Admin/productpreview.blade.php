@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="py-4 px-4">
+<div class="py-4 px-1">
     {{-- <h2 class="font-semibold text-[22px] dark:text-gray-100 pl-1 mb-4">Product Preview</h2> --}}
     @if (session('msg'))
             <div id="alert" class="fixed z-50 top-9 right-[400px] flex w-[500px] shadow-xl rounded-lg transition-transform duration-300">

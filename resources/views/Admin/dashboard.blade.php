@@ -4,7 +4,7 @@
 
 
 @section('content')
-    <div class="w-full h-full px-4 pt-4 pb-6">
+    <div class="w-full h-full px-1 pt-4 pb-6">
         <div class="">
             <h2 class="font-semibold text-[22px] mb-3 dark:text-gray-100">Admin Dashboard</h2>
         </div>
@@ -181,7 +181,7 @@
                         <p class="text-[18px] font-medium flex text-[#c48a20] items-baseline gap-1 dark:text-[#FF6D0A]"><i class='bx bx-user'></i> 245</p>
                     </div>
                 </div>
-                <div class="text-center mt-6">
+                <div class="text-center mt-3">
                     <a href="" class="">
                         <button class="py-2 px-16 bg-blue-500 text-white rounded-md transition-all hover:bg-blue-600">
                             Detail

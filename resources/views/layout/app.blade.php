@@ -27,8 +27,8 @@
         </aside>
 
         {{-- Nav Bar --}}
-        <div class="w-full h-full">
-            <nav class="w-full h-[60px] bg-white sticky top-0 z-[1] shadow-md flex justify-between items-center dark:bg-[#2C2C2C]">
+        <div class="w-full h-full m-4">
+            <nav class="w-full h-[60px] rounded-lg bg-white sticky top-0 z-[1] shadow-md flex justify-between items-center dark:bg-[#2C2C2C]">
                 <div class="ml-4 hidden sm:hidden lg:hidden xl:block cursor-pointer" id="bar">
                     <i class='bx bx-menu-alt-left text-black text-[39px] dark:text-gray-200'></i>
                 </div>
