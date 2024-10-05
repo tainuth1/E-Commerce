@@ -20,17 +20,23 @@ class ProductController extends Controller
     {
 
         $query = $request->input('query');
+        $perPage = $request->input('showing' , 10);
 
         if($query){
             $products = Product::where('name', 'LIKE', "%{$query}%")
                                 ->orWhere('category', 'LIKE', "%{$query}%")
-                                ->paginate(10);
+                                ->paginate($perPage)
+                                ->appends(['showing' => $perPage, 'query' => $query]);
         }else{
-            $products = Product::paginate(10);
+            $products = Product::paginate($perPage)
+                                ->appends(['showing' => $perPage]);;
         }
 
+        if($request->ajax()){
+            return view('partials.product_table', compact('products'))->render();
+        }
 
-        return view('Admin.productlist', compact('products'))->with('products', $products);
+        return view('Admin.productlist', compact('products'));
     }
 
     /**
