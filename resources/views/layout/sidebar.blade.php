@@ -112,12 +112,6 @@
                             <li class="group p-2 rounded-md transition-all hover:bg-blue-500">
                                 <a href="{{ route('product.index') }}" class="text-[14px] text-[#5e5e5e] transition-all group-hover:text-white dark:text-gray-300">Views</a>
                             </li>
-                            <li class="group p-2 rounded-md transition-all hover:bg-blue-500">
-                                <a href="" class="text-[14px] text-[#5e5e5e] transition-all group-hover:text-white dark:text-gray-300">Sold Out   </a>
-                            </li>
-                            <li class="group p-2 rounded-md transition-all hover:bg-blue-500">
-                                <a href="" class="text-[14px] text-[#5e5e5e] transition-all group-hover:text-white dark:text-gray-300">Overviews</a>
-                            </li>
                         </ul>
                     </div>
                 </div>
@@ -130,8 +124,22 @@
                         </div>
                         <a href="" class="text-menu text-[14px] text-[#5e5e5e] transition-all opacity-[1] visible group-hover:text-white dark:text-gray-300">User</a>
                     </div>
-                    <div class="drop-sub flex justify-center items-center" id=""></div>
+                    <div class="drop-sub drop-bar flex justify-center items-center " id="">
+                        <i class='bx bxs-chevron-down text-[17px] transition-all chevron group-hover:text-white dark:text-gray-200'></i>
+                    </div>
                 </li>
+                <div class="w-full hidden sub-menu">
+                    <div class="pl-9">
+                        <ul class="">
+                            <li class="group p-2 rounded-md transition-all hover:bg-blue-500">
+                                <a href="{{ route('user.create') }}" class="text-[14px] text-[#5e5e5e] transition-all group-hover:text-white dark:text-gray-300">Add User</a>
+                            </li>
+                            <li class="group p-2 rounded-md transition-all hover:bg-blue-500">
+                                <a href="{{ route('user.index') }}" class="text-[14px] text-[#5e5e5e] transition-all group-hover:text-white dark:text-gray-300">Views</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
 
 
                 <li class="group flex items-center justify-between cursor-pointer transition-all hover:bg-blue-500 rounded-md">

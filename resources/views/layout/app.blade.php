@@ -55,11 +55,13 @@
                             </svg>
                         </button>
                     </div>
-                    <div class="w-9 h-9 rounded-full overflow-hidden cursor-pointer border-[2px] border-blue-600 mr-4 dark:border-white">
-                        <div class="w-full h-full rounded-full">
-                            <img src="https://avatars.githubusercontent.com/u/148186087?v=4" class="w-full h-full object-cover" alt="">
+                    <a href="{{ route('profile') }}">
+                        <div class="w-9 h-9 rounded-full overflow-hidden cursor-pointer border-[2px] border-blue-600 mr-4 dark:border-white">
+                            <div class="w-full h-full rounded-full">
+                                <img src="https://avatars.githubusercontent.com/u/148186087?v=4" class="w-full h-full object-cover" alt="">
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </nav>
             {{-- Content --}}
@@ -68,12 +70,12 @@
     </div>
 
 @vite(['resources/js/app.js'])
-@vite(['resources/js/chart.js'])
-@vite(['resources/js/calender.js'])
-@vite(['resources/js/counting.js'])
+{{-- @vite(['resources/js/chart.js']) --}}
+{{-- @vite(['resources/js/calender.js']) --}}
+{{-- @vite(['resources/js/counting.js'])
 @vite(['resources/js/createproduct.js'])
 @vite(['resources/js/showproduct.js'])
 @vite(['resources/js/productpreview.js'])
-@vite(['resources/js/updateproduct.js'])
+@vite(['resources/js/updateproduct.js']) --}}
 </body>
 </html>

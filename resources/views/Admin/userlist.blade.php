@@ -1,6 +1,6 @@
 @extends('layout.app')
 
-@section('title', 'Product')
+@section('title', 'Users')
 
 @section('content')
     
@@ -32,28 +32,28 @@
                 </select>
             </div>
             <div class="relative">
-                <form action="{{ route('product.index') }}" class="" method="GET">
+                <form action="{{ route('user.index') }}" class="" method="GET">
                     <input type="text" name="query" value="{{ request()->input('query') }}" autocomplete="off" placeholder="Search . . . . " class="w-[300px] outline-[1px] focus:outline-blue-600 transition-all focus:shadow-lg shadow-inner px-4 py-2 rounded-lg border-[1px] border-gray-300 dark:bg-gray-200">
                     <button type="submit" class="absolute right-2 top-2">
                         <i class='bx bx-search text-[25px]'></i>
                     </button>
                 </form>
             </div>
-            <a href="" class="flex items-center gap-1 text-[14px] transition-all  bg-white shadow px-4 py-2 rounded-lg hover:shadow-xl border-gray-300 dark:bg-gray-200 active:shadow-inner">
+            {{-- <a href="" class="flex items-center gap-1 text-[14px] transition-all  bg-white shadow px-4 py-2 rounded-lg hover:shadow-xl border-gray-300 dark:bg-gray-200 active:shadow-inner">
                 <i class='bx bx-export text-[23px]'></i> 
                 Export
-            </a>
-            <a href="{{ route('product.create') }}">
+            </a> --}}
+            <a href="">
                 <x-button class="flex items-center transition-all shadow hover:shadow-xl">
                     <i class='bx bx-plus text-[20px]'></i>
-                    Add New Product
+                    Add New User
                 </x-button>
             </a>
         </div>
     </div>
     <div class="">
-        <div class="bg-white rounded-xl overflow-hidden shadow dark:bg-[#2C2C2C]" id="products-list">
-            @include('partials.product_table', ['products' => $products])
+        <div class="bg-white rounded-xl shadow dark:bg-[#2C2C2C]" id="users-list">
+            @include('partials.user_table', ['users' => $users])
         </div>
     </div>
 </div>
@@ -63,13 +63,13 @@
             var perPage = $(this).val();
             $.ajax({
                 type: 'GET',
-                url: "{{ route('product.index') }}",
+                url: "{{ route('user.index') }}",
                 data: {
                     showing: perPage
                 },
                 dataType: 'html',
                 success: function (response) {
-                    $('#products-list').html(response);
+                    $('#users-list').html(response);
                 },
                 error: function (xhr, status, error) {
                     console.log('Error:', error);
@@ -79,15 +79,3 @@
     });
 </script>
 @endsection
-
-{{-- <div class="flex justify-between items-center bg-white px-6 py-3 border-t dark:bg-[#2C2C2C] dark:border-gray-400">
-    <button class="text-gray-500 hover:text-gray-700 dark:text-gray-200">Previous</button>
-    <div class="flex space-x-2">
-        <button class="text-white px-3 py-1 bg-blue-500 rounded dark:text-white shadow-inner">1</button>
-        <button class="text-gray-500 hover:text-gray-700 px-3 py-1 dark:text-gray-400">2</button>
-        <button class="text-gray-500 hover:text-gray-700 px-3 py-1 dark:text-gray-400">3</button>
-        <button class="text-gray-500 hover:text-gray-700 px-3 py-1 dark:text-gray-400">4</button>
-        <button class="text-gray-500 hover:text-gray-700 px-3 py-1 dark:text-gray-400">5</button>
-    </div>
-    <button class="text-gray-500 hover:text-gray-700 dark:text-gray-200">Next</button>
-</div> --}}

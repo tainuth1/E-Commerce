@@ -1,5 +1,5 @@
 @if ($paginator->hasPages())
-    <div class="flex justify-between items-center bg-white px-6 py-3 border-t dark:bg-[#2C2C2C] dark:border-gray-400">
+    <div class="flex justify-between rounded-b-xl items-center bg-white px-6 py-3 border-t dark:bg-[#2C2C2C] dark:border-gray-400">
         
         {{-- Previous Page Link --}}
         @if ($paginator->onFirstPage())
